@@ -2,12 +2,12 @@
 /**
  * Plugin Name: MAS Static Blocks
  * Plugin URI: https://madrasthemes.com/mas-static-blocks
- * Description: This plugins helps to create a CPT static blocks and use it in pages and menus.
+ * Description: This plugin helps to create a CPT static blocks and use it using shortcode.
  * Version: 0.0.1
  * Author: MadrasThemes
  * Author URI: https://madrasthemes.com/
  * Requires at least: 4.8
- * Tested up to: 4.8
+ * Tested up to: 5.0
  *
  * Text Domain: mas-static-blocks
  * Domain Path: /languages/
