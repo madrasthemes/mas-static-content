@@ -86,6 +86,7 @@ module.exports = function( grunt ) {
                         '!Gruntfile.js',
                         '!README.md',
                         '!package.json',
+                        '!package-lock.json',
                         '!node_modules/**',
                         '!none',
                         '!.DS_Store',
