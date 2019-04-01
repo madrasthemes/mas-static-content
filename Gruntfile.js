@@ -13,13 +13,13 @@ module.exports = function( grunt ) {
                 type: 'wp-plugin',
                 domainPath: 'languages',
                 potHeaders: {
-                    'report-msgid-bugs-to': 'https://github.com/madrasthemes/mas-static-blocks/issues',
+                    'report-msgid-bugs-to': 'https://github.com/madrasthemes/mas-static-content/issues',
                     'language-team': 'LANGUAGE <EMAIL@ADDRESS>'
                 }
             },
             dist: {
                 options: {
-                    potFilename: 'mas-static-blocks.pot',
+                    potFilename: '<%= pkg.name %>.pot',
                     exclude: [
                         'apigen/.*',
                         'tests/.*',
@@ -32,7 +32,7 @@ module.exports = function( grunt ) {
         // Check textdomain errors.
         checktextdomain: {
             options:{
-                text_domain: 'mas-static-blocks',
+                text_domain: '<%= pkg.name %>',
                 keywords: [
                     '__:1,2d',
                     '_e:1,2d',
@@ -65,9 +65,36 @@ module.exports = function( grunt ) {
 
         // Clean the directory.
         clean: {
-            dist: [
+            main: [
+                '<%= pkg.name %>/',
                 '<%= pkg.name %>*.zip'
             ]
+        },
+
+        // Creates deploy-able plugin
+        copy: {
+            main: {
+                files: [ {
+                    expand: true,
+                    src: [
+                        '**',
+                        '!.*',
+                        '!.*/**',
+                        '.htaccess',
+                        '!Gruntfile.js',
+                        '!README.md',
+                        '!package.json',
+                        '!package-lock.json',
+                        '!node_modules/**',
+                        '!<%= pkg.name %>/**',
+                        '!<%= pkg.name %>.zip',
+                        '!none',
+                        '!.DS_Store',
+                        '!npm-debug.log'
+                    ],
+                    dest: '<%= pkg.name %>/'
+                } ]
+            }
         },
 
         compress: {
@@ -88,6 +115,8 @@ module.exports = function( grunt ) {
                         '!package.json',
                         '!package-lock.json',
                         '!node_modules/**',
+                        '!<%= pkg.name %>/**',
+                        '!<%= pkg.name %>.zip',
                         '!none',
                         '!.DS_Store',
                         '!npm-debug.log'
@@ -101,6 +130,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-checktextdomain' );
     grunt.loadNpmTasks( 'grunt-contrib-clean' );
+    grunt.loadNpmTasks( 'grunt-contrib-copy' );
     grunt.loadNpmTasks( 'grunt-contrib-compress' );
 
     // Register tasks
@@ -110,7 +140,11 @@ module.exports = function( grunt ) {
     ]);
 
     grunt.registerTask( 'deploy', [
-        'clean:dist',
+        'clean:main',
+        'copy:main'
+    ]);
+
+    grunt.registerTask( 'build', [
         'compress:build'
     ]);
 };

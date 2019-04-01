@@ -41,5 +41,5 @@ tests/cli/vendor
 # Composer
 /vendor/
 
-/mas-static-blocks/
-mas-static-block*.zip
+/mas-static-content/
+mas-static-conten*.zip

@@ -1,1 +1,1 @@
-# mas-static-blocks
+# mas-static-content

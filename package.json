@@ -1,20 +1,21 @@
 {
-  "name": "mas-static-blocks",
-  "title": "MAS Static Blocks",
-  "version": "0.0.1",
-  "homepage": "https://madrasthemes.com/mas-static-blocks",
+  "name": "mas-static-content",
+  "title": "MAS Static Content",
+  "version": "1.0.0",
+  "homepage": "https://madrasthemes.com/mas-static-content",
   "repository": {
     "type": "git",
-    "url": "https://github.com/madrasthemes/mas-static-blocks.git"
+    "url": "https://github.com/madrasthemes/mas-static-content.git"
   },
   "license": "GPL-3.0+",
   "main": "Gruntfile.js",
   "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-checktextdomain": "~1.0.0",
-    "grunt-contrib-clean": "~2.0.0",
+    "grunt": "^1.0.4",
+    "grunt-checktextdomain": "^1.0.1",
+    "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-compress": "^1.4.3",
-    "grunt-wp-i18n": "~1.0.0"
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-wp-i18n": "^1.0.3"
   },
   "engines": {
     "node": ">=6.9.4",

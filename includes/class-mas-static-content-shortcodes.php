@@ -2,23 +2,23 @@
 /**
  * Shortcodes
  *
- * @package Mas_Static_Blocks/Classes
+ * @package Mas_Static_Content/Classes
  * @version 1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Mas_Static_Blocks Shortcodes class.
+ * Mas_Static_Content Shortcodes class.
  */
-class Mas_Static_Blocks_Shortcodes {
+class Mas_Static_Content_Shortcodes {
 
     /**
      * Init shortcodes.
      */
     public static function init() {
         $shortcodes = array(
-            'mas_static_block'    => __CLASS__ . '::static_block',
+            'mas_static_content'    => __CLASS__ . '::static_content',
         );
 
         foreach ( $shortcodes as $shortcode => $function ) {
@@ -27,12 +27,12 @@ class Mas_Static_Blocks_Shortcodes {
     }
 
     /**
-     * List multiple static_block shortcode.
+     * List multiple static_content shortcode.
      *
      * @param array $atts Attributes.
      * @return string
      */
-    public static function static_block( $atts ) {
+    public static function static_content( $atts ) {
         $atts       = (array) $atts;
         $content    = '';
 
@@ -43,7 +43,7 @@ class Mas_Static_Blocks_Shortcodes {
 
         if( ! empty( $content ) ) {
             $class      = isset( $atts['class'] ) ? ' ' . $atts['class'] : '';
-            $content    = '<div class="mas-static-block' . esc_attr( $class ) . '">' . $content . '</div>';
+            $content    = '<div class="mas-static-content' . esc_attr( $class ) . '">' . $content . '</div>';
         }
 
         return $content;
