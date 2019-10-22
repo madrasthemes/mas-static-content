@@ -33,17 +33,34 @@ class Mas_Static_Content_Shortcodes {
      * @return string
      */
     public static function static_content( $atts ) {
-        $atts       = (array) $atts;
-        $content    = '';
+        $atts = shortcode_atts( array(
+            'id'        => 0,
+            'class'     => '',
+            'wrap'      => 1,
+        ), $atts, 'mas_static_content' );
 
-        if( isset( $atts['id'] ) ) {
-            $post       = get_post( $atts['id'] );
-            $content    = apply_filters( 'the_content', $post->post_content );
+        if( ! $atts['id'] ) {
+            return '';
         }
 
-        if( ! empty( $content ) ) {
-            $class      = isset( $atts['class'] ) ? ' ' . $atts['class'] : '';
-            $content    = '<div class="mas-static-content' . esc_attr( $class ) . '">' . $content . '</div>';
+        $content    = '';
+        $post       = get_post( $atts['id'] );
+
+        if( ! empty( $post->post_content ) ) {
+            ob_start();
+
+            do_action( 'mas_static_content_before_shortcode_content', $atts );
+            
+            if( $atts['wrap'] ) {
+                $class = ! empty( $atts['class'] ) ? ' ' . $atts['class'] : '';
+                echo '<div class="mas-static-content' . esc_attr( $class ) . '">' . apply_filters( 'the_content', $post->post_content ) . '</div>';
+            } else {
+                echo apply_filters( 'the_content', $post->post_content );
+            }
+
+            do_action( 'mas_static_content_after_shortcode_content', $atts );
+
+            $content = ob_get_clean();
         }
 
         return $content;
