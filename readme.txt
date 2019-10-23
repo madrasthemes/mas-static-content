@@ -2,8 +2,8 @@
 Contributors: madrasthemes, farookibrahim, ibndawood
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
 Requires at least: 4.8
-Tested up to: 5.0
-Stable tag: 1.0.0
+Tested up to: 5.2.4
+Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,7 +45,7 @@ Yes; MAS Static Content will work with any theme.
 
 Bugs can be reported either in our support forum or preferably on the [MAS Static Content GitHub repository](https://github.com/madrasthemes/mas-static-content/issues).
 
-= MAS Static Content is awesome! Can I contribute? =
+= Can I contribute? =
 
 Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/mas-static-content/) :)
 
@@ -54,6 +54,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. screenshot-1.png
 
 == Changelog ==
+
+= 1.0.1 - 2019-10-23 =
+* Tweak – [mas_static_content] shortcode updated
 
 = 1.0.0 - 2019-04-01 =
 * Initial Release
