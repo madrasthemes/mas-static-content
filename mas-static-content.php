@@ -6,9 +6,6 @@
  * Version: 1.0.1
  * Author: MadrasThemes
  * Author URI: https://madrasthemes.com/
- * Requires at least: 4.8
- * Tested up to: 5.2.4
- *
  * Text Domain: mas-static-content
  * Domain Path: /languages/
  *
