@@ -52,7 +52,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 
 == Screenshots ==
 
-1. screenshot-1.png
+1. Static Contents admin.
 
 == Changelog ==
 
