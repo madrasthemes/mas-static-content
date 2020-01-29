@@ -87,10 +87,45 @@ class Mas_Static_Content_Post_Types {
                     'show_in_nav_menus'   => true,
                     'show_in_menu'        => true,
                     'show_in_rest'        => true,
-                    'menu_icon'           => 'dashicons-admin-post'
+                    'menu_icon'           => 'dashicons-admin-post',
                 )
             )
         );
+
+        // Register Custom Taxonomy
+    	$labels = array(
+    		'name'                       => _x( 'Categories', 'Taxonomy General Name', 'mas-static-content' ),
+    		'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'mas-static-content' ),
+    		'menu_name'                  => __( 'Categories', 'mas-static-content' ),
+    		'all_items'                  => __( 'All Items', 'mas-static-content' ),
+    		'parent_item'                => __( 'Parent Item', 'mas-static-content' ),
+    		'parent_item_colon'          => __( 'Parent Item:', 'mas-static-content' ),
+    		'new_item_name'              => __( 'New Item Name', 'mas-static-content' ),
+    		'add_new_item'               => __( 'Add New Item', 'mas-static-content' ),
+    		'edit_item'                  => __( 'Edit Item', 'mas-static-content' ),
+    		'update_item'                => __( 'Update Item', 'mas-static-content' ),
+    		'view_item'                  => __( 'View Item', 'mas-static-content' ),
+    		'separate_items_with_commas' => __( 'Separate items with commas', 'mas-static-content' ),
+    		'add_or_remove_items'        => __( 'Add or remove items', 'mas-static-content' ),
+    		'choose_from_most_used'      => __( 'Choose from the most used', 'mas-static-content' ),
+    		'popular_items'              => __( 'Popular Items', 'mas-static-content' ),
+    		'search_items'               => __( 'Search Items', 'mas-static-content' ),
+    		'not_found'                  => __( 'Not Found', 'mas-static-content' ),
+    		'no_terms'                   => __( 'No items', 'mas-static-content' ),
+    		'items_list'                 => __( 'Items list', 'mas-static-content' ),
+    		'items_list_navigation'      => __( 'Items list navigation', 'mas-static-content' ),
+    	);
+
+        $args = array(
+    		'labels'                     => $labels,
+    		'hierarchical'               => false,
+    		'public'                     => true,
+    		'show_ui'                    => true,
+    		'show_admin_column'          => true,
+    		'show_in_nav_menus'          => true,
+    		'show_tagcloud'              => true,
+    	);
+        register_taxonomy( 'mas_static_content_cat', array( 'mas_static_content' ), $args );
 
         do_action( 'mas_static_content_after_register_post_type' );
     }
