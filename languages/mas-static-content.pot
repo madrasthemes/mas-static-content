@@ -1,15 +1,15 @@
-# Copyright (C) 2019 MadrasThemes
+# Copyright (C) 2020 MadrasThemes
 # This file is distributed under the same license as the MAS Static Content package.
 msgid ""
 msgstr ""
-"Project-Id-Version: MAS Static Content 1.0.1\n"
+"Project-Id-Version: MAS Static Content 1.0.2\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/madrasthemes/mas-static-content/issues\n"
-"POT-Creation-Date: 2019-10-23 07:14:31+00:00\n"
+"POT-Creation-Date: 2020-01-30 10:49:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
@@ -110,6 +110,78 @@ msgstr ""
 msgid "This is where you can add new static contents to your site."
 msgstr ""
 
+#: includes/class-mas-static-content-post-types.php:100
+msgid "Categories"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:101
+msgid "All Items"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:102
+msgid "Parent Item"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:103
+msgid "Parent Item:"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:104
+msgid "New Item Name"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:105
+msgid "Add New Item"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:106
+msgid "Edit Item"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:107
+msgid "Update Item"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:108
+msgid "View Item"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:109
+msgid "Separate items with commas"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:110
+msgid "Add or remove items"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:111
+msgid "Choose from the most used"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:112
+msgid "Popular Items"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:113
+msgid "Search Items"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:114
+msgid "Not Found"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:115
+msgid "No items"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:116
+msgid "Items list"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:117
+msgid "Items list navigation"
+msgstr ""
+
 #: includes/class-mas-static-content.php:48
 #: includes/class-mas-static-content.php:55
 msgid "Cheatin&#8217; huh?"
@@ -140,4 +212,14 @@ msgstr ""
 #: includes/class-mas-static-content-post-types.php:54
 msgctxt "Admin menu name"
 msgid "Static Contents"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:98
+msgctxt "Taxonomy General Name"
+msgid "Categories"
+msgstr ""
+
+#: includes/class-mas-static-content-post-types.php:99
+msgctxt "Taxonomy Singular Name"
+msgid "Category"
 msgstr ""
