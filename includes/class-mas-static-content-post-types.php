@@ -117,7 +117,7 @@ class Mas_Static_Content_Post_Types {
                 'items_list_navigation'      => __( 'Items list navigation', 'mas-static-content' ),
             );
 
-            $args = apply_filters( 'mas_static_content_register_taxonomy_mas_static_content', array(
+            $args = apply_filters( 'mas_static_content_register_taxonomy_mas_static_content_cat', array(
                 'labels'                     => $labels,
                 'hierarchical'               => false,
                 'public'                     => true,
