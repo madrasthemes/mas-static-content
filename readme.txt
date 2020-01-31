@@ -56,7 +56,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 
 == Changelog ==
 
-= 1.0.2 - 2020-01-30 =
+= 1.0.2 - 2020-01-31 =
 * Enhancement – Category taxonomy added
 
 = 1.0.1 - 2019-10-23 =
