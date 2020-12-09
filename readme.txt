@@ -2,7 +2,7 @@
 Contributors: madrasthemes, farookibrahim, yousufansa, ibndawood
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
 Requires at least: 4.8
-Tested up to: 5.5
+Tested up to: 5.6
 Requires PHP: 5.6
 Stable tag: 1.0.3
 License: GPLv3
