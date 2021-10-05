@@ -30,14 +30,14 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 ## Frequently Asked Questions
 
-#### Will MAS Static Content work with my theme?
+### Will MAS Static Content work with my theme?
 
 Yes; MAS Static Content will work with any theme.
 
-#### Where can I report bugs or contribute to the project?
+### Where can I report bugs or contribute to the project?
 
 Bugs can be reported either in our support forum or preferably on the [MAS Static Content GitHub repository](https://github.com/madrasthemes/mas-static-content/issues).
 
-#### Can I contribute?
+### Can I contribute?
 
 Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/mas-static-content/) :)
