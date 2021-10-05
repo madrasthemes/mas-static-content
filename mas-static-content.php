@@ -9,30 +9,29 @@
  * Text Domain: mas-static-content
  * Domain Path: /languages/
  *
- * @package Mas_Static_Content
- * @category Core
- * @author Madras Themes
+ * @package Core
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+	exit; // Exit if accessed directly.
 }
 
 // Define MAS_STATIC_CONTENT_PLUGIN_FILE.
 if ( ! defined( 'MAS_STATIC_CONTENT_PLUGIN_FILE' ) ) {
-    define( 'MAS_STATIC_CONTENT_PLUGIN_FILE', __FILE__ );
+	define( 'MAS_STATIC_CONTENT_PLUGIN_FILE', __FILE__ );
 }
 
 // Include the main Mas_Static_Content class.
 if ( ! class_exists( 'Mas_Static_Content' ) ) {
-    include_once dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/includes/class-mas-static-content.php';
+	include_once dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/includes/class-mas-static-content.php';
 }
 
 /**
  * Unique access instance for Mas_Static_Content class
  */
-function Mas_Static_Content() {
-    return Mas_Static_Content::instance();
+function mas_static_content() {
+	return Mas_Static_Content::instance();
 }
 
 // Global for backwards compatibility.
-$GLOBALS['mas_static_content'] = Mas_Static_Content();
+$GLOBALS['mas_static_content'] = mas_static_content();
