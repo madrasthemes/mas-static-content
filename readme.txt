@@ -56,6 +56,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 
 == Changelog ==
 
+= 1.0.5 - 2023-04-13 =
+* Compatible with WordPress 6.2
+
 = 1.0.4 - 2021-03-29 =
 * Tested PHP version upto 5.7
 
