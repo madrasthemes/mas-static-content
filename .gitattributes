@@ -2,6 +2,7 @@
 /.wordpress-org export-ignore
 /.github export-ignore
 /node_modules export-ignore
+/vendor export-ignore
 
 # Files
 /.editorconfig export-ignore
