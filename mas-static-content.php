@@ -1,13 +1,17 @@
 <?php
 /**
- * Plugin Name: MAS Static Content
- * Plugin URI: https://github.com/madrasthemes/mas-static-content
- * Description: This plugin helps to create a custom post type static content and use it with shortcode.
- * Version: 1.0.6
- * Author: MadrasThemes
- * Author URI: https://madrasthemes.com/
- * Text Domain: mas-static-content
- * Domain Path: /languages
+ * Plugin Name:       MAS Static Content
+ * Plugin URI:        https://github.com/madrasthemes/mas-static-content
+ * Description:       This plugin helps to create a custom post type static content and use it with shortcode.
+ * Version:           1.0.6
+ * Requires at least: 5.2
+ * Requires PHP:      7.2
+ * Author:            MadrasThemes
+ * Author URI:        https://madrasthemes.com/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       mas-static-content
+ * Domain Path:       /languages
  *
  * @package Core
  */
