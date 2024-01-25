@@ -8,9 +8,18 @@
 	<exclude-pattern>*/tests/*</exclude-pattern>
 	<exclude-pattern>*/languages/*</exclude-pattern>
 
+	<!-- Show progress, show the error codes for each message (source). -->
+	<arg value="ps" />
+
+	<!-- Strip the filepaths in reports down to the relevant bit. -->
+	<arg name="basepath" value="./" />
+
+	<!-- Check up to 8 files simultaneously. -->
+	<arg name="parallel" value="8" />
+
 	<!-- Configs -->
 	<config name="minimum_supported_wp_version" value="5.3" />
-	<config name="testVersion" value="7.0-" />
+	<config name="testVersion" value="7.4-" />
 
 	<!-- Rules -->
 	<rule ref="WooCommerce-Core" />
