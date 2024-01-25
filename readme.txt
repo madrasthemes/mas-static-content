@@ -1,10 +1,10 @@
 === MAS Static Content ===
 Contributors: madrasthemes, farookibrahim, yousufansa, ibndawood, nilofer07
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
-Requires at least: 4.8
-Tested up to: 6.0
+Requires at least: 6.4
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,7 +20,7 @@ Use the `[mas_static_content]` shortcode with id attribute to display static con
 
 = Minimum Requirements =
 
-* PHP version 5.7 or greater (PHP 7.0 or greater is recommended)
+* PHP version 7.4 or greater (PHP 8.3 or greater is recommended)
 
 = Automatic installation =
 
@@ -55,6 +55,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+= 1.0.6 - 2024-01-25 =
+* Compatible with WordPress 6.4.x
+* Tested with PHP 8.2
 
 = 1.0.5 - 2023-04-13 =
 * Compatible with WordPress 6.2
