@@ -58,6 +58,10 @@
 		<exclude-pattern>tests/</exclude-pattern>
 	</rule>
 
+	<rule ref="WooCommerce.Commenting">
+		<exclude name="WooCommerce.Commenting.CommentHooks.MissingHookComment"/>
+	</rule>
+
 	<rule ref="Generic.Commenting.Todo">
 		<exclude name="Generic.Commenting.Todo.TaskFound"/>
 		<exclude name="Generic.Commenting.Todo.CommentFound"/>
