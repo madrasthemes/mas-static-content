@@ -47,12 +47,10 @@ class Mas_Static_Content_Shortcodes {
 			return '';
 		}
 
-		$original_post   = $GLOBALS['post'];
 		$content         = '';
-		$GLOBALS['post'] = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-		setup_postdata( $GLOBALS['post'] );
+		$static_post = get_post( $atts['id'] );
 
-		if ( ! empty( get_the_content() ) ) {
+		if ( ! empty( $static_post ) && ! empty( $static_post->post_content ) ) {
 			ob_start();
 
 			do_action( 'mas_static_content_before_shortcode_content', $atts );
@@ -62,7 +60,7 @@ class Mas_Static_Content_Shortcodes {
 				echo '<div class="mas-static-content' . esc_attr( $class ) . '">';
 			}
 
-			the_content();
+			echo apply_filters( 'the_content', $static_post->post_content );
 
 			if ( $atts['wrap'] ) {
 				echo '</div>';
@@ -72,10 +70,6 @@ class Mas_Static_Content_Shortcodes {
 
 			$content = ob_get_clean();
 		}
-
-		$GLOBALS['post'] = $original_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-
-		wp_reset_postdata();
 
 		return $content;
 	}
