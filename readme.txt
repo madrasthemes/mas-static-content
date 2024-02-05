@@ -43,7 +43,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 Yes; MAS Static Content will work with any theme.
 
 = How can I use ACF field shortcode inside static content? =
-Here is how you use the ACF field shortcode from the calling post inside the static content: [acf field="author" post_id="inherit"]
+Here is how you use the ACF field shortcode from the calling post inside the static content: `[acf field="author" post_id="inherit"]`
 
 = Where can I report bugs or contribute to the project? =
 
