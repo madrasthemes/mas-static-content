@@ -22,7 +22,7 @@ if ( ! class_exists( 'Mas_Static_Content' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.6';
+		public $version = '1.0.7';
 
 		/**
 		 * The single instance of the class.

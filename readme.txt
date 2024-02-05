@@ -3,8 +3,8 @@ Contributors: madrasthemes, farookibrahim, yousufansa, ibndawood, nilofer07
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
 Requires at least: 6.4
 Tested up to: 6.4
-Requires PHP: 7.4
-Stable tag: 1.0.6
+Requires PHP: 8.0
+Stable tag: 1.0.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -55,6 +55,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+
+= 1.0.7 - 2024-02-05 =
+* Fixed acf isuse in MAS Static Content
 
 = 1.0.6 - 2024-01-25 =
 * Compatible with WordPress 6.4.x
