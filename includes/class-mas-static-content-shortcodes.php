@@ -47,12 +47,16 @@ class Mas_Static_Content_Shortcodes {
 			return '';
 		}
 
-		$original_post   = $GLOBALS['post'];
-		$content         = '';
-		$GLOBALS['post'] = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-		setup_postdata( $GLOBALS['post'] );
+		$original_post       = $GLOBALS['post'];
+		$content             = '';
+		$static_content_post = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		$GLOBALS['post']     = $static_content_post;
 
-		if ( ! empty( get_the_content() ) ) {
+		setup_postdata( $static_content_post );
+
+		$static_content = get_the_content();
+
+		if ( ! empty( $static_content ) ) {
 			ob_start();
 
 			do_action( 'mas_static_content_before_shortcode_content', $atts );
@@ -62,7 +66,17 @@ class Mas_Static_Content_Shortcodes {
 				echo '<div class="mas-static-content' . esc_attr( $class ) . '">';
 			}
 
-			the_content();
+			/**
+			 * Filters the post content.
+			 *
+			 * @since 1.0.7
+			 *
+			 * @param string $content Content of the current post.
+			 */
+			$static_content = str_replace( 'post_id="inherit"', 'post_id="' . $original_post->ID . '"', $static_content );
+			$static_content = apply_filters( 'the_content', $static_content );
+			$static_content = str_replace( ']]>', ']]&gt;', $static_content );
+			echo $static_content;
 
 			if ( $atts['wrap'] ) {
 				echo '</div>';

@@ -1,7 +1,7 @@
 === MAS Static Content ===
 Contributors: madrasthemes, farookibrahim, yousufansa, ibndawood, nilofer07
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
-Requires at least: 6.4
+Requires at least: 6.3
 Tested up to: 6.4
 Requires PHP: 7.4
 Stable tag: 1.0.6
@@ -55,6 +55,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+= 1.0.7 - 2024-02-05 =
+* Fix - Compatibility with ACF
 
 = 1.0.6 - 2024-01-25 =
 * Compatible with WordPress 6.4.x
