@@ -57,7 +57,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 == Changelog ==
 
 = 1.0.7 - 2024-02-05 =
-* Fix - Compatibility with ACF
+* Feature - Support for ACF shortcodes
 
 = 1.0.6 - 2024-01-25 =
 * Compatible with WordPress 6.4.x
