@@ -50,6 +50,11 @@ class Mas_Static_Content_Shortcodes {
 		$original_post       = $GLOBALS['post'];
 		$content             = '';
 		$static_content_post = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+
+		if ( 'private' === get_post_status( $static_content_post ) && ! current_user_can( 'read_private_posts' ) ) {
+			return '';
+		}
+
 		$GLOBALS['post']     = $static_content_post;
 
 		setup_postdata( $static_content_post );
