@@ -2,8 +2,8 @@ const { registerBlockType } = wp.blocks;
 const { SelectControl } = wp.components;
 const { useSelect } = wp.data;
 
-registerBlockType('megamenu/navigation-static-content', {
-    title: 'Static Content Menu',
+registerBlockType( 'mas-static-content/navigation-static-content', {
+    title: 'MegaMenu',
     icon: 'screenoptions',
     category: 'widgets',
     attributes: {
