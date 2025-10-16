@@ -1,7 +1,7 @@
 === MAS Static Content ===
-Contributors: madrasthemes, farookibrahim, yousufansa, ibndawood, nilofer07
+Contributors: madrasthemes
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
-Requires at least: 6.7
+Requires at least: 6.8
 Tested up to: 6.7
 Requires PHP: 7.4
 Stable tag: 1.1.0
