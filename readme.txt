@@ -1,10 +1,10 @@
 === MAS Static Content ===
-Contributors: madrasthemes, farookibrahim, yousufansa, ibndawood, nilofer07
+Contributors: madrasthemes
 Tags: custom post types, cpt, cms, post, types, post type, custom, content types
-Requires at least: 6.3
-Tested up to: 6.6
+Requires at least: 6.8
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -58,6 +58,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+= 1.1.0 - 2025-10-16 =
+* Feature - Added Static Content Block 
 
 = 1.0.9 - 2024-09-14 =
 * Fix - Issue related to reading private shortcodes
