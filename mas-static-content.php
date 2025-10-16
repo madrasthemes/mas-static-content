@@ -30,6 +30,18 @@ if ( ! class_exists( 'Mas_Static_Content' ) ) {
 	include_once dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/includes/class-mas-static-content.php';
 }
 
+
+add_action( 'enqueue_block_editor_assets', function() {
+    wp_enqueue_script(
+        'mas_static_content-megamenu-block',
+       	plugin_dir_url( MAS_STATIC_CONTENT_PLUGIN_FILE ) . 'build/index.js',
+        [ 'wp-blocks', 'wp-element', 'wp-components', 'wp-data', 'wp-editor' ],
+        filemtime( dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/build/index.js' ),
+        true
+    );
+});
+
+
 /**
  * Unique access instance for Mas_Static_Content class
  */
