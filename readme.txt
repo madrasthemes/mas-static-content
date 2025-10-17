@@ -1,6 +1,6 @@
 === MAS Static Content ===
 Contributors: madrasthemes
-Tags: custom post types, cpt, cms, post, types, post type, custom, content types
+Tags: cpt, megamenu, static content
 Requires at least: 6.8
 Tested up to: 6.7
 Requires PHP: 7.4
