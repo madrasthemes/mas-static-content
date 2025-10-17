@@ -30,6 +30,46 @@ if ( ! class_exists( 'Mas_Static_Content' ) ) {
 	include_once dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/includes/class-mas-static-content.php';
 }
 
+/**
+ * Register the dynamic block type and render callback.
+ */
+add_action( 'init', function() {
+    register_block_type( 'mas-static-content/navigation-static-content', array(
+        'render_callback' => 'mas_static_content_render_megamenu_block',
+        'attributes'      => array(
+            'staticContentId' => array( 'type' => 'integer' ),
+        ),
+        'supports'        => array(
+            'inserter' => true,
+        ),
+        'parent' => array('core/navigation', 'core/navigation-submenu'),
+    ) );
+});
+
+
+/**
+ * Render callback for the MegaMenu block.
+ *
+ * @param array $attributes Block attributes from JS.
+ * @return string Rendered HTML content.
+ */
+function mas_static_content_render_megamenu_block( $attributes ) {
+
+
+    if ( empty( $attributes['staticContentId'] ) ) {
+        return '';
+    }
+
+    $post = get_post( $attributes['staticContentId'] );
+
+    if ( ! $post ) {
+        return '';
+    }
+
+    // Return the content with filters (so shortcodes, blocks, etc. render properly)
+    return apply_filters( 'the_content', $post->post_content );
+}
+
 
 add_action( 'enqueue_block_editor_assets', function() {
     wp_enqueue_script(
