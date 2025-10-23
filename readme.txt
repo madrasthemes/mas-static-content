@@ -4,7 +4,7 @@ Tags: cpt, megamenu, static content
 Requires at least: 6.8
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -58,6 +58,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+= 1.1.1 - 2025-10-23 =
+* Feature - Added Static Content Megamenu Block in the navigation menu.
 
 = 1.1.0 - 2025-10-16 =
 * Feature - Added Static Content Block 
