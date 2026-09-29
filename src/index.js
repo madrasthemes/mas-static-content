@@ -1,39 +1,51 @@
-const { registerBlockType } = wp.blocks;
-const { SelectControl, Spinner } = wp.components;
-const { useSelect } = wp.data;
+import { registerBlockType } from '@wordpress/blocks';
+import { useBlockProps } from '@wordpress/block-editor';
+import { SelectControl, Spinner } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
+import { store as coreStore } from '@wordpress/core-data';
 
-registerBlockType('mas-static-content/navigation-static-content', {
-    title: 'MegaMenu',
-    icon: 'screenoptions',
-    category: 'widgets',
-    attributes: {
-        staticContentId: { type: 'number' },
-    },
-    edit: (props) => {
-        const { attributes, setAttributes } = props;
+import metadata from './block.json';
 
-        const posts = useSelect((select) => {
-            return select('core').getEntityRecords('postType', 'mas_static_content', { per_page: -1 });
-        }, [wp.data.select('core').getEntityRecords]); 
+registerBlockType( metadata.name, {
+    edit: ( { attributes, setAttributes } ) => {
+        const blockProps = useBlockProps();
 
-        
+        // `getEntityRecords` returns null until the request resolves (or if it fails).
+        const { posts, hasResolved } = useSelect( ( select ) => {
+            const args = [ 'postType', 'mas_static_content', { per_page: -1 } ];
+            return {
+                posts: select( coreStore ).getEntityRecords( ...args ),
+                hasResolved: select( coreStore ).hasFinishedResolution( 'getEntityRecords', args ),
+            };
+        }, [] );
 
-        const options = posts.map((post) => ({
-            label: post.title.rendered,
-            value: post.id,
-        }));
+        if ( ! hasResolved ) {
+            return (
+                <div { ...blockProps }>
+                    <Spinner />
+                </div>
+            );
+        }
 
-        // Optional: add a default option
-        options.unshift({ label: 'Select Static Content', value: 0 });
+        const options = [
+            { label: 'Select Static Content', value: 0 },
+            ...( posts || [] ).map( ( post ) => ( {
+                label: post.title.rendered,
+                value: post.id,
+            } ) ),
+        ];
 
         return (
-            <SelectControl
-                label="Select Static Content"
-                value={attributes.staticContentId || 0}
-                options={options}
-                onChange={(value) => setAttributes({ staticContentId: parseInt(value) })}
-            />
+            <div { ...blockProps }>
+                <SelectControl
+                    label="Select Static Content"
+                    value={ attributes.staticContentId || 0 }
+                    options={ options }
+                    onChange={ ( value ) => setAttributes( { staticContentId: parseInt( value, 10 ) } ) }
+                    __nextHasNoMarginBottom
+                />
+            </div>
         );
     },
     save: () => null, // Server-rendered
-});
+} );

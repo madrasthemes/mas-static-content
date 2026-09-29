@@ -33,18 +33,17 @@ if ( ! class_exists( 'Mas_Static_Content' ) ) {
 /**
  * Register the dynamic block type and render callback.
  */
-add_action( 'init', function() {
-    register_block_type( 'mas-static-content/navigation-static-content', array(
-        'render_callback' => 'mas_static_content_render_megamenu_block',
-        'attributes'      => array(
-            'staticContentId' => array( 'type' => 'integer' ),
-        ),
-        'supports'        => array(
-            'inserter' => true,
-        ),
-        'parent' => array('core/navigation', 'core/navigation-submenu'),
-    ) );
-});
+add_action(
+	'init',
+	function () {
+		register_block_type(
+			dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/build',
+			array(
+				'render_callback' => 'mas_static_content_render_megamenu_block',
+			)
+		);
+	}
+);
 
 
 /**
@@ -54,32 +53,31 @@ add_action( 'init', function() {
  * @return string Rendered HTML content.
  */
 function mas_static_content_render_megamenu_block( $attributes ) {
+	if ( empty( $attributes['staticContentId'] ) ) {
+		return '';
+	}
 
+	$post = get_post( $attributes['staticContentId'] );
 
-    if ( empty( $attributes['staticContentId'] ) ) {
-        return '';
-    }
+	if ( ! $post || 'mas_static_content' !== $post->post_type || post_password_required( $post ) ) {
+		return '';
+	}
 
-    $post = get_post( $attributes['staticContentId'] );
+	// Only published content, or private content for users allowed to read it.
+	$status = get_post_status( $post );
+	if ( 'publish' !== $status && ! ( 'private' === $status && current_user_can( 'read_private_posts' ) ) ) {
+		return '';
+	}
 
-    if ( ! $post ) {
-        return '';
-    }
-
-    // Return the content with filters (so shortcodes, blocks, etc. render properly)
-    return apply_filters( 'the_content', $post->post_content );
+	/**
+	 * Filters the post content.
+	 *
+	 * @since 1.1.1
+	 *
+	 * @param string $content Content of the static content post.
+	 */
+	return apply_filters( 'the_content', $post->post_content );
 }
-
-
-add_action( 'enqueue_block_editor_assets', function() {
-    wp_enqueue_script(
-        'mas_static_content-megamenu-block',
-       	plugin_dir_url( MAS_STATIC_CONTENT_PLUGIN_FILE ) . 'build/index.js',
-        [ 'wp-blocks', 'wp-element', 'wp-components', 'wp-data', 'wp-editor' ],
-        filemtime( dirname( MAS_STATIC_CONTENT_PLUGIN_FILE ) . '/build/index.js' ),
-        true
-    );
-});
 
 
 /**
