@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mas-static-content/navigation-static-content",
+  "title": "MegaMenu",
+  "category": "widgets",
+  "icon": "screenoptions",
+  "description": "Displays a static content inside the navigation menu.",
+  "parent": [
+    "core/navigation",
+    "core/navigation-submenu"
+  ],
+  "attributes": {
+    "staticContentId": {
+      "type": "integer"
+    }
+  },
+  "supports": {
+    "inserter": true,
+    "html": false
+  },
+  "textdomain": "mas-static-content",
+  "editorScript": "file:./index.js"
+}
