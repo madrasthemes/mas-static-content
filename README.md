@@ -12,7 +12,7 @@ Use the `[mas_static_content]` shortcode with id attribute to display static con
 
 ### Minimum Requirements
 
-* WordPress 6.7 or greater (PHP 7.4 or greater is recommended)
+* WordPress 7.1 or greater (PHP 7.4 or greater is recommended)
 
 ### Automatic installation
 
