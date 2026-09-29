@@ -47,9 +47,14 @@ class Mas_Static_Content_Shortcodes {
 			return '';
 		}
 
-		$original_post       = $GLOBALS['post'];
+		$original_post       = isset( $GLOBALS['post'] ) ? $GLOBALS['post'] : null;
+		$original_post_id    = $original_post instanceof WP_Post ? $original_post->ID : '';
 		$content             = '';
 		$static_content_post = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+
+		if ( ! $static_content_post ) {
+			return '';
+		}
 
 		if ( 'private' === get_post_status( $static_content_post ) && ! current_user_can( 'read_private_posts' ) ) {
 			return '';
@@ -78,7 +83,7 @@ class Mas_Static_Content_Shortcodes {
 			 *
 			 * @param string $content Content of the current post.
 			 */
-			$static_content = str_replace( 'post_id="inherit"', 'post_id="' . $original_post->ID . '"', $static_content );
+			$static_content = str_replace( 'post_id="inherit"', 'post_id="' . $original_post_id . '"', $static_content );
 			$static_content = apply_filters( 'the_content', $static_content );
 			$static_content = str_replace( ']]>', ']]&gt;', $static_content );
 			echo $static_content;
