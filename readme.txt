@@ -4,7 +4,7 @@ Tags: cpt, megamenu, static content
 Requires at least: 7.1
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -58,6 +58,17 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+= 1.1.3 - 2026-09-30 =
+* Fix - PHP warning "Attempt to read property "ID" on null" when the shortcode is used where there is no global post, such as 404 pages, headers and megamenus.
+* Fix - MegaMenu block crashing in the editor while static contents are loading.
+* Fix - MegaMenu block displaying private, draft and password-protected static contents to visitors.
+* Tweak - MegaMenu block registered from block.json using block API version 3.
+* Tweak - Requires WordPress 7.1. Tested up to WordPress 7.1 and PHP 8.5.
+* Dev - Updated development dependencies.
+
+= 1.1.2 - 2025-11-03 =
+* Fix - Static content select issue in the MegaMenu block.
 
 = 1.1.1 - 2025-10-23 =
 * Feature - Added Static Content Megamenu Block in the navigation menu.
