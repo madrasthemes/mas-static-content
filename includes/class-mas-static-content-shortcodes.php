@@ -52,11 +52,13 @@ class Mas_Static_Content_Shortcodes {
 		$content             = '';
 		$static_content_post = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
-		if ( ! $static_content_post ) {
+		if ( ! $static_content_post || 'mas_static_content' !== $static_content_post->post_type || post_password_required( $static_content_post ) ) {
 			return '';
 		}
 
-		if ( 'private' === get_post_status( $static_content_post ) && ! current_user_can( 'read_private_posts' ) ) {
+		// Only published content, or private content for users allowed to read it.
+		$status = get_post_status( $static_content_post );
+		if ( 'publish' !== $status && ! ( 'private' === $status && current_user_can( 'read_private_posts' ) ) ) {
 			return '';
 		}
 
