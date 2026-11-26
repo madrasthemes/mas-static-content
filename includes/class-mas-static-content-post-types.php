@@ -35,8 +35,16 @@ class Mas_Static_Content_Post_Types {
 	 * @return string[]
 	 */
 	public static function custom_mas_static_content_columns( $columns ) {
-		$columns_new['cb']        = $columns['cb'];
-		$columns_new['title']     = $columns['title'];
+		$columns_new = array();
+
+		if ( isset( $columns['cb'] ) ) {
+			$columns_new['cb'] = $columns['cb'];
+		}
+
+		if ( isset( $columns['title'] ) ) {
+			$columns_new['title'] = $columns['title'];
+		}
+
 		$columns_new['shortcode'] = esc_html__( 'Shortcode', 'mas-static-content' );
 
 		$columns_old = $columns;
@@ -189,7 +197,7 @@ class Mas_Static_Content_Post_Types {
 	}
 
 	/**
-	 * Disable Gutenberg for videos.
+	 * Disable legacy Gutenberg plugin editor for static content post type.
 	 *
 	 * @param bool   $can_edit Whether the post type can be edited or not.
 	 * @param string $post_type The post type being checked.
@@ -200,7 +208,7 @@ class Mas_Static_Content_Post_Types {
 	}
 
 	/**
-	 * Added video for Jetpack related posts.
+	 * Add static content post type for Jetpack related posts / REST API.
 	 *
 	 * @param  array $post_types Post types.
 	 * @return array

@@ -3,7 +3,7 @@
  * Plugin Name:       MAS Static Content
  * Plugin URI:        https://github.com/madrasthemes/mas-static-content
  * Description:       This plugin helps to create a custom post type static content and use it with shortcode.
- * Version:           1.1.3
+ * Version:           1.1.4
  * Requires at least: 7.1
  * Requires PHP:      7.4
  * Author:            MadrasThemes
@@ -53,11 +53,19 @@ add_action(
  * @return string Rendered HTML content.
  */
 function mas_static_content_render_megamenu_block( $attributes ) {
-	if ( empty( $attributes['staticContentId'] ) ) {
+	$post_id = isset( $attributes['staticContentId'] ) ? absint( $attributes['staticContentId'] ) : 0;
+
+	if ( ! $post_id ) {
 		return '';
 	}
 
-	$post = get_post( $attributes['staticContentId'] );
+	static $rendering_ids = array();
+
+	if ( isset( $rendering_ids[ $post_id ] ) ) {
+		return '';
+	}
+
+	$post = get_post( $post_id );
 
 	if ( ! $post || 'mas_static_content' !== $post->post_type || post_password_required( $post ) ) {
 		return '';
@@ -69,6 +77,8 @@ function mas_static_content_render_megamenu_block( $attributes ) {
 		return '';
 	}
 
+	$rendering_ids[ $post_id ] = true;
+
 	/**
 	 * Filters the post content.
 	 *
@@ -76,7 +86,11 @@ function mas_static_content_render_megamenu_block( $attributes ) {
 	 *
 	 * @param string $content Content of the static content post.
 	 */
-	return apply_filters( 'the_content', $post->post_content );
+	$content = apply_filters( 'the_content', $post->post_content );
+
+	unset( $rendering_ids[ $post_id ] );
+
+	return $content;
 }
 
 
