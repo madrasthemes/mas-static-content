@@ -43,35 +43,50 @@ class Mas_Static_Content_Shortcodes {
 			'mas_static_content'
 		);
 
-		if ( ! $atts['id'] ) {
+		$post_id = absint( $atts['id'] );
+
+		if ( ! $post_id ) {
+			return '';
+		}
+
+		static $rendering_ids = array();
+
+		if ( isset( $rendering_ids[ $post_id ] ) ) {
 			return '';
 		}
 
 		$original_post       = isset( $GLOBALS['post'] ) ? $GLOBALS['post'] : null;
-		$original_post_id    = $original_post instanceof WP_Post ? $original_post->ID : '';
+		$original_post_id    = $original_post instanceof WP_Post ? absint( $original_post->ID ) : '';
 		$content             = '';
-		$static_content_post = get_post( $atts['id'] ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		$static_content_post = get_post( $post_id );
 
-		if ( ! $static_content_post ) {
+		if ( ! $static_content_post || 'mas_static_content' !== $static_content_post->post_type || post_password_required( $static_content_post ) ) {
 			return '';
 		}
 
-		if ( 'private' === get_post_status( $static_content_post ) && ! current_user_can( 'read_private_posts' ) ) {
+		$status = get_post_status( $static_content_post );
+
+		if ( 'publish' !== $status && ! ( 'private' === $status && current_user_can( 'read_private_posts' ) ) ) {
 			return '';
 		}
 
-		$GLOBALS['post']     = $static_content_post;
+		$rendering_ids[ $post_id ] = true;
+
+		// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		$GLOBALS['post'] = $static_content_post;
 
 		setup_postdata( $static_content_post );
 
 		$static_content = get_the_content();
 
 		if ( ! empty( $static_content ) ) {
+			$wrap = wp_validate_boolean( $atts['wrap'] );
+
 			ob_start();
 
 			do_action( 'mas_static_content_before_shortcode_content', $atts );
 
-			if ( $atts['wrap'] ) {
+			if ( $wrap ) {
 				$class = ! empty( $atts['class'] ) ? ' ' . $atts['class'] : '';
 				echo '<div class="mas-static-content' . esc_attr( $class ) . '">';
 			}
@@ -86,9 +101,9 @@ class Mas_Static_Content_Shortcodes {
 			$static_content = str_replace( 'post_id="inherit"', 'post_id="' . $original_post_id . '"', $static_content );
 			$static_content = apply_filters( 'the_content', $static_content );
 			$static_content = str_replace( ']]>', ']]&gt;', $static_content );
-			echo $static_content;
+			echo $static_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			if ( $atts['wrap'] ) {
+			if ( $wrap ) {
 				echo '</div>';
 			}
 
@@ -97,9 +112,12 @@ class Mas_Static_Content_Shortcodes {
 			$content = ob_get_clean();
 		}
 
-		$GLOBALS['post'] = $original_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		$GLOBALS['post'] = $original_post;
 
 		wp_reset_postdata();
+
+		unset( $rendering_ids[ $post_id ] );
 
 		return $content;
 	}

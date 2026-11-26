@@ -2,7 +2,11 @@
 <ruleset name="WordPress Coding Standards">
 	<description>MAS Static Content Dev Ruleset</description>
 
+	<!-- Files -->
+	<file>.</file>
+
 	<!-- Exclude paths -->
+	<exclude-pattern>*/build/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
@@ -26,7 +30,9 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="mas-static-content" />
+			<property name="text_domain" type="array">
+				<element value="mas-static-content" />
+			</property>
 		</properties>
 	</rule>
 

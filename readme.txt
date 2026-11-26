@@ -2,9 +2,9 @@
 Contributors: madrasthemes
 Tags: cpt, megamenu, static content
 Requires at least: 7.1
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -58,6 +58,14 @@ Yes you can! Join in on our [GitHub repository](https://github.com/madrasthemes/
 1. Static Contents admin.
 
 == Changelog ==
+
+= 1.1.4 - 2026-11-26 =
+* Security - Prevent `[mas_static_content]` shortcode from rendering non-mas_static_content post types, password-protected posts, or unpublished statuses (draft, pending, future, trash) to unauthorized users.
+* Fix - Add recursion guard to shortcode and MegaMenu block rendering to prevent infinite loops on self-referential static content.
+* Fix - Guard admin list table column array keys (`cb`, `title`) for PHP 8.4 compatibility.
+* Fix - Properly handle `wrap="0"` and `wrap="false"` in `[mas_static_content]` shortcode.
+* Fix - Internationalize MegaMenu block labels and guard against missing post titles in the block editor.
+* Tweak - Tested up to WordPress 7.2 and PHP 8.4.
 
 = 1.1.3 - 2026-09-30 =
 * Fix - PHP warning "Attempt to read property "ID" on null" when the shortcode is used where there is no global post, such as 404 pages, headers and megamenus.
